@@ -14,6 +14,7 @@ public class SimpleParkingAttendant implements ParkingAttendant {
     @Override
     public void parkCar(ParkingLot parkingLot, Car car, Integer location) {
         if (parkingLot.hasSpace()) {
+            System.out.print("Attendant ");
             parkingLot.parkCar(car,location);
         } else {
             System.out.println("Parking lot is full!");

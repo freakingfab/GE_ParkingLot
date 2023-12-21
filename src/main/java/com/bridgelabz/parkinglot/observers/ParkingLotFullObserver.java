@@ -19,8 +19,5 @@ public class ParkingLotFullObserver implements Observer{
         if (observable instanceof ParkingLot && ((ParkingLot) observable).isFull()) {
             System.out.println("Parking lot is full! Put out the full sign.");
         }
-        if (observable instanceof ParkingLot && ((ParkingLot) observable).getParkingPlotOccupancy() == (((ParkingLot) observable).getCapacity() - 1) ) {
-            System.out.println("Parking lot has sapce now! Pull out the full sign.");
-        }
     }
 }

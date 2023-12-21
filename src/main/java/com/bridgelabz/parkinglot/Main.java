@@ -1,7 +1,12 @@
 package com.bridgelabz.parkinglot;
 
+import com.bridgelabz.parkinglot.interfaces.ParkingAttendant;
+import com.bridgelabz.parkinglot.observers.FullToSpaceObserver;
 import com.bridgelabz.parkinglot.observers.ParkingLotFullObserver;
 import com.bridgelabz.parkinglot.observers.ParkingLotSecurityObserver;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -10,10 +15,16 @@ public class Main {
         ParkingLot parkingLot = new ParkingLot(2);
         parkingLot.addObserver( new ParkingLotFullObserver());
         parkingLot.addObserver(new ParkingLotSecurityObserver());
+        parkingLot.addObserver(new FullToSpaceObserver());
 
         parkingLot.parkCar(new Car(1),1);
         parkingLot.parkCar(new Car(2),2);
 
         parkingLot.unparkCar(1);
+        parkingLot.unparkCar(2);
+
+        List<Car> carsToPark = Arrays.asList(new Car(4), new Car(5));
+        ParkingAttendant attendant = new SimpleParkingAttendant();
+        parkingLot.parkCarsWithAttendant(carsToPark, attendant);
     }
 }
