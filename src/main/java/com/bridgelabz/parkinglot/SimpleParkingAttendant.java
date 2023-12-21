@@ -12,10 +12,10 @@ public class SimpleParkingAttendant implements ParkingAttendant {
         @return: void
      */
     @Override
-    public void parkCar(ParkingLot parkingLot, Car car, Integer location) {
+    public void parkCar(ParkingLot parkingLot, Car car) {
         if (parkingLot.hasSpace()) {
             System.out.print("Attendant ");
-            parkingLot.parkCar(car,location);
+            parkingLot.parkCar(car);
         } else {
             System.out.println("Parking lot is full!");
         }

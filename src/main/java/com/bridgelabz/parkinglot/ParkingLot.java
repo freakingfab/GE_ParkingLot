@@ -7,7 +7,9 @@ import com.bridgelabz.parkinglot.interfaces.ParkingAttendant;
  */
 public class ParkingLot extends Observable{
     private int capacity;
-    private Map<Integer, Integer> parkedCars;
+    private Map<Integer, Car> parkedCars;
+
+    private static final int perHourCharge = 5;
 
     /*
         @desc: constructor for class
@@ -33,9 +35,9 @@ public class ParkingLot extends Observable{
         @params: Car object
         @return: void
      */
-    public void parkCar(Car car, int location){
+    public void parkCar(Car car){
         if(getParkingPlotOccupancy() < capacity){
-            parkedCars.put(car.getCarId(), location);
+            parkedCars.put(car.getCarId(), car);
             System.out.println("Car parked: "+car.getCarId());
             setChanged();
             notifyObservers();
@@ -85,7 +87,7 @@ public class ParkingLot extends Observable{
         @params: none
         @return: Map<car>
      */
-    public Map<Integer,Integer> getParkedCars() {
+    public Map<Integer,Car> getParkedCars() {
         return new HashMap<>(parkedCars);
     }
 
@@ -105,7 +107,7 @@ public class ParkingLot extends Observable{
      */
     public void parkCarsWithAttendant(List<Car> cars, ParkingAttendant attendant) {
         for (Car car : cars) {
-            attendant.parkCar(this, car, car.getCarId());
+            attendant.parkCar(this, car);
         }
     }
 
@@ -115,6 +117,15 @@ public class ParkingLot extends Observable{
         @return: int
      */
     public int getLocationOfCar(int carId){
-        return parkedCars.get(carId);
+        return parkedCars.get(carId).getLocation();
+    }
+
+    /*
+        @desc: provides charge for parking
+        @param: carId, currentTime
+        @return: int
+     */
+    public int getParkingCharge(int carId, int currentTime){
+        return (currentTime - parkedCars.get(carId).getEntryTime())*perHourCharge;
     }
 }

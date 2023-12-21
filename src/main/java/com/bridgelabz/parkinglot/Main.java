@@ -17,9 +17,9 @@ public class Main {
         parkingLot.addObserver(new ParkingLotSecurityObserver());
         parkingLot.addObserver(new FullToSpaceObserver());
 
-        parkingLot.parkCar(new Car(1),1);
-        parkingLot.parkCar(new Car(2),2);
+        parkingLot.parkCar(new Car(1, 10,1));
+        parkingLot.parkCar(new Car(2, 20,2));
 
-        System.out.println("Car with id:1 is parked at location: " + parkingLot.getLocationOfCar(1));
+        System.out.println("Car with id:1 charge: " + parkingLot.getParkingCharge(1,30));
     }
 }
