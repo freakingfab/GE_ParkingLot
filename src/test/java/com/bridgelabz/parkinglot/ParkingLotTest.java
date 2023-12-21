@@ -33,7 +33,7 @@ public class ParkingLotTest {
      */
     @Test
     public void carIsParkedOrNotTest(){
-        parkingLot.parkCar(new Car(1, 20,1));
+        parkingLot.parkCar(new Car(1, 20,1,"A"));
         assertEquals(1,parkingLot.getParkingPlotOccupancy());
     }
 
@@ -44,8 +44,8 @@ public class ParkingLotTest {
      */
     @Test
     public void unparkCarTest(){
-        parkingLot.parkCar(new Car(1,10,1));
-        parkingLot.parkCar(new Car(2,12,1));
+        parkingLot.parkCar(new Car(1,10,1,"A"));
+        parkingLot.parkCar(new Car(2,12,1,"A"));
         parkingLot.unparkCar(1);
         assertEquals(1,parkingLot.getParkingPlotOccupancy());
     }
@@ -57,9 +57,9 @@ public class ParkingLotTest {
      */
     @Test
     public void isParkingLotFullTest(){
-        parkingLot.parkCar(new Car(1,10,1));
-        parkingLot.parkCar(new Car(2,11,2));
-        parkingLot.parkCar(new Car(3,12,3));
+        parkingLot.parkCar(new Car(1,10,1,"A"));
+        parkingLot.parkCar(new Car(2,11,2,"A"));
+        parkingLot.parkCar(new Car(3,12,3,"A"));
         assertTrue(parkingLot.isFull());
     }
 
@@ -70,9 +70,9 @@ public class ParkingLotTest {
      */
     @Test
     public void locationOfCarTest(){
-        parkingLot.parkCar(new Car(1,10,1));
-        parkingLot.parkCar(new Car(2,11,2));
-        parkingLot.parkCar(new Car(3,12,3));
+        parkingLot.parkCar(new Car(1,10,1,"A"));
+        parkingLot.parkCar(new Car(2,11,2,"A"));
+        parkingLot.parkCar(new Car(3,12,3,"A"));
         assertEquals(2, parkingLot.getLocationOfCar(2));
     }
 
@@ -83,11 +83,9 @@ public class ParkingLotTest {
      */
     @Test
     public void parkingChargesOfCarTest(){
-        ParkingAttendant evenDistributionAttendant = new EvenDistributionParkingAttendant(parkingLot.getCapacity());
-        parkingLot.parkCarsWithAttendant(Arrays.asList(new Car(4,10,1), new Car(5,20,2)), evenDistributionAttendant);
-        parkingLot.parkCar(new Car(1,10,1));
-        parkingLot.parkCar(new Car(2,11,2));
-        parkingLot.parkCar(new Car(3,12,3));
+        parkingLot.parkCar(new Car(1,10,1,"A"));
+        parkingLot.parkCar(new Car(2,11,2,"A"));
+        parkingLot.parkCar(new Car(3,12,3,"A"));
         assertEquals(100, parkingLot.getParkingCharge(1,30));
     }
 }

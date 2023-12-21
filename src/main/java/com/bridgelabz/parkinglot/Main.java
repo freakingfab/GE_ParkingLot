@@ -13,13 +13,14 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
         System.out.println("Welcome to Parking Lot");
+        // Assuming 4 Rows Parking Lot with 5 parking location in each row
 
-        ParkingLot parkingLot = new ParkingLot(2);
+        ParkingLot parkingLot = new ParkingLot(20);
         parkingLot.addObserver( new ParkingLotFullObserver());
         parkingLot.addObserver(new ParkingLotSecurityObserver());
         parkingLot.addObserver(new FullToSpaceObserver());
 
-        ParkingAttendant nearestFreeSpaceAttendant = new NearestFreeSpaceParkingAttendant(parkingLot.getCapacity());
-        parkingLot.parkCarsWithAttendant(Arrays.asList(new Car(1,10,1), new Car(2,20,2)), nearestFreeSpaceAttendant);
+        ParkingAttendant largeCarAttendant = new LargeCarParkingAttendant(4,5);
+        parkingLot.parkCarsWithAttendant(Arrays.asList(new Car(1,10,1, "A"), new Car(2,20,2,"B")), largeCarAttendant);
     }
 }

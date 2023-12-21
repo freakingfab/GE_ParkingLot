@@ -7,16 +7,18 @@ public class Car {
     private int carId;
     private int entryTime;
     private int location;
+    private String row;
 
     /*
         @desc: constructor for the class
         @params: carId
         @return: none
      */
-    public Car(int carId, int entryTime, int location){
+    public Car(int carId, int entryTime, int location, String row){
         this.carId = carId;
         this.entryTime = entryTime;
         this.location = location;
+        this.row = row;
     }
 
     /*
