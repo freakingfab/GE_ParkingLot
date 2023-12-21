@@ -143,4 +143,17 @@ public class ParkingLotTest {
 
         assertEquals(3, policeDepartment.getAllRecentCars(30).size());
     }
+    /*
+        @desc: test for small handicap cars
+        @params: none
+        @return: void
+     */
+    @Test
+    public void smallHandicapCarCountTest(){
+        parkingLot.parkCar(new Car(1,10,1, "A","Rj4536","BMW","white","small",true));
+        parkingLot.parkCar(new Car(2,10,2, "A","Rj4533","BMW","blue","small",false));
+        parkingLot.parkCar(new Car(3,10,3, "A","Rj4534","TATA","red","small",false));
+
+        assertEquals(1, policeDepartment.getAllSmallHandicapCars().size());
+    }
 }

@@ -67,4 +67,15 @@ public class PoliceDepartment {
         return recentCars;
     }
 
+    /*
+       @desc: provides all cars parked in 30 minutes list
+       @params: none
+       @return: list<car>
+    */
+    public List<Car> getAllSmallHandicapCars(){
+        List<Car> smallHandicapCars = parkingLot.getParkedCars().stream()
+                .filter(car -> "small".equalsIgnoreCase(car.getType()) && car.isHandicap())
+                .collect(Collectors.toList());
+        return smallHandicapCars;
+    }
 }
