@@ -1,6 +1,8 @@
 package com.bridgelabz.parkinglot;
 
 import java.util.*;
+import java.util.stream.Collectors;
+
 import com.bridgelabz.parkinglot.interfaces.ParkingAttendant;
 import com.bridgelabz.parkinglot.models.Car;
 
@@ -84,10 +86,14 @@ public class ParkingLot extends Observable{
     /*
         @desc: getter for List of parked cars
         @params: none
-        @return: Map<car>
+        @return: List<car>
      */
-    public Map<Integer,Car> getParkedCars() {
-        return new HashMap<>(parkedCars);
+    public List<Car> getParkedCars() {
+        List<Car> cars = new ArrayList<>();
+        for(int i=0;i<parkedCars.size();i++){
+            cars.add(parkedCars.get(i+1));
+        }
+        return cars;
     }
 
     /*
@@ -127,4 +133,6 @@ public class ParkingLot extends Observable{
     public int getParkingCharge(int carId, int currentTime){
         return (currentTime - parkedCars.get(carId).getEntryTime())*perHourCharge;
     }
+
+
 }

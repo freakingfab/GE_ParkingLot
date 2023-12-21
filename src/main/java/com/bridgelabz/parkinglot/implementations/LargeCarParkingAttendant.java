@@ -1,5 +1,6 @@
-package com.bridgelabz.parkinglot;
+package com.bridgelabz.parkinglot.implementations;
 
+import com.bridgelabz.parkinglot.ParkingLot;
 import com.bridgelabz.parkinglot.interfaces.ParkingAttendant;
 import com.bridgelabz.parkinglot.models.Car;
 
