@@ -44,9 +44,6 @@ public class ParkingLot extends Observable{
             setChanged();
             notifyObservers();
         }
-        else{
-            System.out.println("Parking Lot is full");
-        }
     }
 
     /*

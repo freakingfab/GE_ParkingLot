@@ -1,6 +1,7 @@
 package com.bridgelabz.parkinglot;
 
 import com.bridgelabz.parkinglot.implementations.EvenDistributionParkingAttendant;
+import com.bridgelabz.parkinglot.implementations.NearestFreeSpaceParkingAttendant;
 import com.bridgelabz.parkinglot.interfaces.ParkingAttendant;
 import com.bridgelabz.parkinglot.models.Car;
 import com.bridgelabz.parkinglot.observers.FullToSpaceObserver;
@@ -18,7 +19,7 @@ public class Main {
         parkingLot.addObserver(new ParkingLotSecurityObserver());
         parkingLot.addObserver(new FullToSpaceObserver());
 
-        ParkingAttendant evenDistributionAttendant = new EvenDistributionParkingAttendant(parkingLot.getCapacity());
-        parkingLot.parkCarsWithAttendant(Arrays.asList(new Car(4,10,1), new Car(5,20,2)), evenDistributionAttendant);
+        ParkingAttendant nearestFreeSpaceAttendant = new NearestFreeSpaceParkingAttendant(parkingLot.getCapacity());
+        parkingLot.parkCarsWithAttendant(Arrays.asList(new Car(1,10,1), new Car(2,20,2)), nearestFreeSpaceAttendant);
     }
 }
