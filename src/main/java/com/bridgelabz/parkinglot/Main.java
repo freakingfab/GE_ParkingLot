@@ -13,5 +13,7 @@ public class Main {
 
         parkingLot.parkCar(new Car(1),1);
         parkingLot.parkCar(new Car(2),2);
+
+        parkingLot.unparkCar(1);
     }
 }

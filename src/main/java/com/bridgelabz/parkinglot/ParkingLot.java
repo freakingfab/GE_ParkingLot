@@ -1,7 +1,7 @@
 package com.bridgelabz.parkinglot;
 
 import java.util.*;
-
+import com.bridgelabz.parkinglot.interfaces.ParkingAttendant;
 /*
     @desc: class for the whole parking lot
  */
@@ -69,5 +69,43 @@ public class ParkingLot extends Observable{
      */
     public boolean isFull() {
         return parkedCars.size() >= capacity;
+    }
+
+    /*
+        @desc: function to check plot has space or not
+        @params: none
+        @return: boolean
+     */
+    public boolean hasSpace() {
+        return parkedCars.size() < capacity;
+    }
+
+    /*
+        @desc: getter for List of parked cars
+        @params: none
+        @return: Map<car>
+     */
+    public Map<Integer,Integer> getParkedCars() {
+        return new HashMap<>(parkedCars);
+    }
+
+    /*
+        @desc: getter for capacity variable
+        @params: none
+        @return: int
+     */
+    public int getCapacity() {
+        return capacity;
+    }
+
+    /*
+        @desc: park cars with attendant
+        @params: List<Cars>, attendant
+        @return: void
+     */
+    public void parkCarsWithAttendant(List<Car> cars, ParkingAttendant attendant) {
+        for (Car car : cars) {
+            attendant.parkCar(this, car, car.getCarId());
+        }
     }
 }
