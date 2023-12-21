@@ -68,7 +68,7 @@ public class PoliceDepartment {
     }
 
     /*
-       @desc: provides all cars parked in 30 minutes list
+       @desc: provides all small and handicap cars
        @params: none
        @return: list<car>
     */
@@ -77,5 +77,16 @@ public class PoliceDepartment {
                 .filter(car -> "small".equalsIgnoreCase(car.getType()) && car.isHandicap())
                 .collect(Collectors.toList());
         return smallHandicapCars;
+    }
+    /*
+       @desc: provides all cars parked in row B or D
+       @params: none
+       @return: list<car>
+    */
+    public List<Car> getAllCarsInRowBorD(){
+        List<Car> carsOnRowsBorD = parkingLot.getParkedCars().stream()
+                .filter(car -> "b".equalsIgnoreCase(car.getRow()) || "d".equalsIgnoreCase(car.getRow()))
+                .collect(Collectors.toList());
+        return carsOnRowsBorD;
     }
 }

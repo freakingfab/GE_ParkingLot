@@ -156,4 +156,17 @@ public class ParkingLotTest {
 
         assertEquals(1, policeDepartment.getAllSmallHandicapCars().size());
     }
+    /*
+        @desc: test for cars in b or d row
+        @params: none
+        @return: void
+     */
+    @Test
+    public void CarInRowBorDCountTest(){
+        parkingLot.parkCar(new Car(1,10,1, "A","Rj4536","BMW","white","small",true));
+        parkingLot.parkCar(new Car(2,10,2, "B","Rj4533","BMW","blue","small",false));
+        parkingLot.parkCar(new Car(3,10,3, "D","Rj4534","TATA","red","small",false));
+
+        assertEquals(2, policeDepartment.getAllCarsInRowBorD().size());
+    }
 }

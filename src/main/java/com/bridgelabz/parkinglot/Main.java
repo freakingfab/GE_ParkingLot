@@ -19,11 +19,11 @@ public class Main {
         parkingLot.addObserver(new FullToSpaceObserver());
 
         parkingLot.parkCar(new Car(1,10,1, "A","Rj4536","BMW","white","small",true));
-        parkingLot.parkCar(new Car(2,10,2, "A","Rj4533","Toyota","blue","small",false));
-        parkingLot.parkCar(new Car(3,10,3, "A","Rj4534","Toyota","red","small",false));
+        parkingLot.parkCar(new Car(2,10,2, "B","Rj4533","Toyota","blue","small",false));
+        parkingLot.parkCar(new Car(3,10,3, "D","Rj4534","Toyota","red","small",false));
 
         PoliceDepartment policeDepartment = new PoliceDepartment(parkingLot);
-        System.out.println("Total Recent cars: " + policeDepartment.getAllSmallHandicapCars().size());
+        System.out.println("Total Recent cars: " + policeDepartment.getAllCarsInRowBorD().size());
 
     }
 }
