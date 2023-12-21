@@ -27,7 +27,20 @@ public class ParkingLotTest {
      */
     @Test
     public void carIsParkedOrNotTest(){
-        parkingLot.parkCar(new Car(1));
+        parkingLot.parkCar(new Car(1),1);
+        assertEquals(1,parkingLot.getParkingPlotOccupancy());
+    }
+
+    /*
+        @desc: test for unparking car
+        @params: none
+        @return void
+     */
+    @Test
+    public void unparkCarTest(){
+        parkingLot.parkCar(new Car(1),1);
+        parkingLot.parkCar(new Car(2),2);
+        parkingLot.unparkCar(1);
         assertEquals(1,parkingLot.getParkingPlotOccupancy());
     }
 }

@@ -5,7 +5,9 @@ public class Main {
         System.out.println("Welcome to Parking Lot");
 
         ParkingLot parkingLot = new ParkingLot(3);
-        parkingLot.parkCar(new Car(1));
-        parkingLot.parkCar(new Car(2));
+        parkingLot.parkCar(new Car(1),1);
+        parkingLot.parkCar(new Car(2),2);
+
+        parkingLot.unparkCar(2);
     }
 }
