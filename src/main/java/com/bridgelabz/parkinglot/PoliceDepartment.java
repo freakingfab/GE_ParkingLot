@@ -31,4 +31,15 @@ public class PoliceDepartment {
                 .collect(Collectors.toList());
         return whiteCars;
     }
+    /*
+       @desc: provides car with blue color and of toyota list
+       @params: none
+       @return: list<car>
+    */
+    public List<Car> getBlueToyotaCars(){
+        List<Car> blueToyotaCars = parkingLot.getParkedCars().stream()
+                .filter(car -> "blue".equalsIgnoreCase(car.getColor()) && "toyota".equalsIgnoreCase(car.getMake()))
+                .collect(Collectors.toList());
+        return blueToyotaCars;
+    }
 }

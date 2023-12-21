@@ -103,4 +103,17 @@ public class ParkingLotTest {
 
         assertEquals(2, policeDepartment.getWhiteCars().size());
     }
+    /*
+        @desc: test for blue toyota cars
+        @params: none
+        @return: void
+     */
+    @Test
+    public void blueToyotaCountTest(){
+        parkingLot.parkCar(new Car(1,10,1, "A","Rj4536","TATA","white","small",false));
+        parkingLot.parkCar(new Car(2,10,2, "A","Rj4533","Toyota","blue","small",false));
+        parkingLot.parkCar(new Car(3,10,3, "A","Rj4534","TATA","red","small",false));
+
+        assertEquals(1, policeDepartment.getBlueToyotaCars().size());
+    }
 }
