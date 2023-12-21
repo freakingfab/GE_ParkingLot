@@ -1,14 +1,11 @@
 package com.bridgelabz.parkinglot;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /*
     @desc: class for the whole parking lot
  */
-public class ParkingLot {
+public class ParkingLot extends Observable{
     private int capacity;
     private Map<Integer, Integer> parkedCars;
 
@@ -30,6 +27,7 @@ public class ParkingLot {
     public int getParkingPlotOccupancy(){
         return parkedCars.size();
     }
+
     /*
         @desc: function to provide parking facility
         @params: Car object
@@ -39,6 +37,8 @@ public class ParkingLot {
         if(getParkingPlotOccupancy() < capacity){
             parkedCars.put(car.getCarId(), location);
             System.out.println("Car parked: "+car.getCarId());
+            setChanged();
+            notifyObservers();
         }
         else{
             System.out.println("Parking Lot is full");
@@ -54,9 +54,20 @@ public class ParkingLot {
         if(parkedCars.containsKey(carId)){
             parkedCars.remove(carId);
             System.out.println("Car Unparked: " + carId);
+            setChanged();
+            notifyObservers();
         }
         else{
             System.out.println("No such car found");
         }
+    }
+
+    /*
+        @desc: function to check full occupancy
+        @params: none
+        @return: boolean
+     */
+    public boolean isFull() {
+        return parkedCars.size() >= capacity;
     }
 }

@@ -43,4 +43,17 @@ public class ParkingLotTest {
         parkingLot.unparkCar(1);
         assertEquals(1,parkingLot.getParkingPlotOccupancy());
     }
+
+    /*
+        @desc: test for plot full
+        @params: none
+        @return: void
+     */
+    @Test
+    public void isParkingLotFullTest(){
+        parkingLot.parkCar(new Car(1),1);
+        parkingLot.parkCar(new Car(2),2);
+        parkingLot.parkCar(new Car(3),3);
+        assertTrue(parkingLot.isFull());
+    }
 }
