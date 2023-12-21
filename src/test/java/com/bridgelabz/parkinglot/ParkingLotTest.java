@@ -128,6 +128,19 @@ public class ParkingLotTest {
         parkingLot.parkCar(new Car(2,10,2, "A","Rj4533","BMW","blue","small",false));
         parkingLot.parkCar(new Car(3,10,3, "A","Rj4534","TATA","red","small",false));
 
-        assertEquals(1, policeDepartment.getAllBMWCars().size());
+        assertEquals(2, policeDepartment.getAllBMWCars().size());
+    }
+    /*
+        @desc: test for recent cars
+        @params: none
+        @return: void
+     */
+    @Test
+    public void recentCarCountTest(){
+        parkingLot.parkCar(new Car(1,10,1, "A","Rj4536","BMW","white","small",false));
+        parkingLot.parkCar(new Car(2,10,2, "A","Rj4533","BMW","blue","small",false));
+        parkingLot.parkCar(new Car(3,10,3, "A","Rj4534","TATA","red","small",false));
+
+        assertEquals(3, policeDepartment.getAllRecentCars(30).size());
     }
 }

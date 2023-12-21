@@ -23,7 +23,7 @@ public class Main {
         parkingLot.parkCar(new Car(3,10,3, "A","Rj4534","Toyota","red","small",false));
 
         PoliceDepartment policeDepartment = new PoliceDepartment(parkingLot);
-        System.out.println("Total BMW cars: " + policeDepartment.getAllBMWCars().size());
+        System.out.println("Total Recent cars: " + policeDepartment.getAllRecentCars(30).size());
 
     }
 }

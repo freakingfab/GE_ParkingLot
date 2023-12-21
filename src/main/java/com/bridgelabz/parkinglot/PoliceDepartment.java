@@ -54,4 +54,17 @@ public class PoliceDepartment {
                 .collect(Collectors.toList());
         return bmwCars;
     }
+
+    /*
+       @desc: provides all cars parked in 30 minutes list
+       @params: none
+       @return: list<car>
+    */
+    public List<Car> getAllRecentCars(int currentTime){
+        List<Car> recentCars = parkingLot.getParkedCars().stream()
+                .filter(car -> car.getEntryTime()>(currentTime - 30))
+                .collect(Collectors.toList());
+        return recentCars;
+    }
+
 }
