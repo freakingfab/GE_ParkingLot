@@ -20,11 +20,6 @@ public class Main {
         parkingLot.parkCar(new Car(1),1);
         parkingLot.parkCar(new Car(2),2);
 
-        parkingLot.unparkCar(1);
-        parkingLot.unparkCar(2);
-
-        List<Car> carsToPark = Arrays.asList(new Car(4), new Car(5));
-        ParkingAttendant attendant = new SimpleParkingAttendant();
-        parkingLot.parkCarsWithAttendant(carsToPark, attendant);
+        System.out.println("Car with id:1 is parked at location: " + parkingLot.getLocationOfCar(1));
     }
 }

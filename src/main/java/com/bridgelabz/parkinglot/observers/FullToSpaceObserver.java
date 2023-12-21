@@ -9,7 +9,7 @@ import java.util.Observer;
     @desc: Observer for notifying when a full parking lot gets space
  */
 public class FullToSpaceObserver implements Observer {
-    private boolean wasFull = true;
+    private boolean wasFull = false;
 
     @Override
     public void update(Observable o, Object arg) {

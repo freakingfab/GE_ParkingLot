@@ -108,4 +108,13 @@ public class ParkingLot extends Observable{
             attendant.parkCar(this, car, car.getCarId());
         }
     }
+
+    /*
+        @desc: provides location for car
+        @params: carId
+        @return: int
+     */
+    public int getLocationOfCar(int carId){
+        return parkedCars.get(carId);
+    }
 }

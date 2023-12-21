@@ -56,4 +56,17 @@ public class ParkingLotTest {
         parkingLot.parkCar(new Car(3),3);
         assertTrue(parkingLot.isFull());
     }
+
+    /*
+        @desc: test for getting location of car by driver
+        @params: none
+        @return: void
+     */
+    @Test
+    public void locationOfCarTest(){
+        parkingLot.parkCar(new Car(1),1);
+        parkingLot.parkCar(new Car(2),2);
+        parkingLot.parkCar(new Car(3),3);
+        assertEquals(2, parkingLot.getLocationOfCar(2));
+    }
 }
