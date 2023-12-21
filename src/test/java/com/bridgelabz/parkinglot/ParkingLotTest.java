@@ -1,7 +1,13 @@
 package com.bridgelabz.parkinglot;
 
+import com.bridgelabz.parkinglot.implementations.EvenDistributionParkingAttendant;
+import com.bridgelabz.parkinglot.interfaces.ParkingAttendant;
+import com.bridgelabz.parkinglot.models.Car;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.Arrays;
+
 import static org.junit.Assert.*;
 
 /*
@@ -77,6 +83,8 @@ public class ParkingLotTest {
      */
     @Test
     public void parkingChargesOfCarTest(){
+        ParkingAttendant evenDistributionAttendant = new EvenDistributionParkingAttendant(parkingLot.getCapacity());
+        parkingLot.parkCarsWithAttendant(Arrays.asList(new Car(4,10,1), new Car(5,20,2)), evenDistributionAttendant);
         parkingLot.parkCar(new Car(1,10,1));
         parkingLot.parkCar(new Car(2,11,2));
         parkingLot.parkCar(new Car(3,12,3));

@@ -2,6 +2,8 @@ package com.bridgelabz.parkinglot;
 
 import java.util.*;
 import com.bridgelabz.parkinglot.interfaces.ParkingAttendant;
+import com.bridgelabz.parkinglot.models.Car;
+
 /*
     @desc: class for the whole parking lot
  */
