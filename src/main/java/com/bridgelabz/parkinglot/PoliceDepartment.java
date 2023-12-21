@@ -42,4 +42,16 @@ public class PoliceDepartment {
                 .collect(Collectors.toList());
         return blueToyotaCars;
     }
+
+    /*
+       @desc: provides all bmw cars list
+       @params: none
+       @return: list<car>
+    */
+    public List<Car> getAllBMWCars(){
+        List<Car> bmwCars = parkingLot.getParkedCars().stream()
+                .filter(car -> "bmw".equalsIgnoreCase(car.getMake()))
+                .collect(Collectors.toList());
+        return bmwCars;
+    }
 }
